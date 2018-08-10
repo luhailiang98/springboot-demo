@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sy.dao.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.sy.model.SysUser">
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="DEPARTMENT_ID" jdbcType="INTEGER" property="departmentId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_PWD" jdbcType="CHAR" property="userPwd" />
+    <result column="USER_POSITION" jdbcType="VARCHAR" property="userPosition" />
+    <result column="USER_PHONE" jdbcType="VARCHAR" property="userPhone" />
+    <result column="USER_EMAIL" jdbcType="VARCHAR" property="userEmail" />
+    <result column="USER_DISPLAY_ORDER" jdbcType="INTEGER" property="userDisplayOrder" />
+    <result column="USER_NOTE" jdbcType="VARCHAR" property="userNote" />
+  </resultMap>
+
+</mapper>

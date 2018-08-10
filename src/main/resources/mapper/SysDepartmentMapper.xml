@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sy.dao.SysDepartmentMapper">
+  <resultMap id="BaseResultMap" type="com.sy.model.SysDepartment">
+    <id column="DEPARTMENT_ID" jdbcType="INTEGER" property="departmentId" />
+    <result column="PARENT_DEPARTMENT_ID" jdbcType="INTEGER" property="parentDepartmentId" />
+    <result column="DEPARTMENT_NAME" jdbcType="VARCHAR" property="departmentName" />
+    <result column="DEPARTMENT_ATTRIBUTE" jdbcType="VARCHAR" property="departmentAttribute" />
+    <result column="DEPARTMENT_RESPONSIBILITIES" jdbcType="VARCHAR" property="departmentResponsibilities" />
+    <result column="DEPARTMENT_HEADER" jdbcType="VARCHAR" property="departmentHeader" />
+    <result column="DEPARTMENT_PHONE" jdbcType="VARCHAR" property="departmentPhone" />
+    <result column="DEPARTMENT_DISPLAY_ORDER" jdbcType="INTEGER" property="departmentDisplayOrder" />
+    <result column="DEPARTMENT_NOTE" jdbcType="VARCHAR" property="departmentNote" />
+  </resultMap>
+
+</mapper>
