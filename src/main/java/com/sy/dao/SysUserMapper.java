@@ -1,8 +1,16 @@
 package com.sy.dao;
 
 import com.sy.model.SysUser;
-import com.sy.utils.MyMapper;
+import java.util.List;
 
-public interface SysUserMapper extends MyMapper<SysUser> {
+public interface SysUserMapper  {
 
+
+  int insertSelective(SysUser user);
+
+  int updateByPrimaryKeySelective(SysUser user);
+
+  int deleteByPrimaryKey(Integer userId);
+
+  SysUser selectByPrimaryKey(Integer userId);
 }

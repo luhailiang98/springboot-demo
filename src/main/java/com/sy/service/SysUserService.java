@@ -10,4 +10,10 @@ import com.sy.model.SysUser;
 public interface SysUserService {
 
   public void saveUser(SysUser user);
+
+  public void updateUser(SysUser user);
+
+  public void deleteUser(int userId);
+
+  public SysUser selectUser(int userId);
 }

@@ -1,5 +1,6 @@
 package com.sy.service.Impl;
 
+import com.google.common.base.Preconditions;
 import com.sy.dao.SysUserMapper;
 import com.sy.model.SysUser;
 import com.sy.service.SysUserService;
@@ -25,5 +26,28 @@ public class SysUserServiceImpl implements SysUserService {
         .userEmail(user.getUserEmail()).userDisplayOrder(user.getUserDisplayOrder())
         .userNote(user.getUserNote()).build();
     sysUserMapper.insertSelective(sysUser);
+  }
+
+  @Override
+  public void updateUser(SysUser user) {
+    SysUser sysUser = SysUser.builder().userId(user.getUserId()).departmentId(user.getDepartmentId())
+        .userName(user.getUserName()).userPwd(user.getUserPwd())
+        .userPosition(user.getUserPosition()).userPhone(user.getUserPhone())
+        .userEmail(user.getUserEmail()).userDisplayOrder(user.getUserDisplayOrder())
+        .userNote(user.getUserNote()).build();
+    sysUserMapper.updateByPrimaryKeySelective(sysUser);
+  }
+
+  @Override
+  public void deleteUser(int userId) {
+    SysUser user = sysUserMapper.selectByPrimaryKey(userId);
+    Preconditions.checkNotNull(user,"需删除的用户不存在");
+    sysUserMapper.deleteByPrimaryKey(userId);
+  }
+
+  @Override
+  public SysUser selectUser(int userId) {
+    SysUser user =sysUserMapper.selectByPrimaryKey(userId);
+    return user;
   }
 }

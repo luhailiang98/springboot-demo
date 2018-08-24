@@ -49,7 +49,6 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>1.16.18</version>
-      <scope>provided</scope>
     </dependency>
 
     <!-- 引入 thymeleaf 模板依赖 -->
@@ -90,12 +89,6 @@
       <artifactId>mybatis-spring-boot-starter</artifactId>
       <version>1.3.1</version>
     </dependency>
-    <!--通用mapper-->
-    <dependency>
-      <groupId>tk.mybatis</groupId>
-      <artifactId>mapper-spring-boot-starter</artifactId>
-      <version>1.2.4</version>
-    </dependency>
     <!--pagehelper分页-->
     <dependency>
       <groupId>com.github.pagehelper</groupId>
@@ -116,6 +109,13 @@
       <version>2.7.0</version>
     </dependency>
 
+    <!-- guava工具包 -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>18.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -125,6 +125,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
     </plugins>
+
   </build>
 
 
