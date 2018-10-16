@@ -23,3 +23,6 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+.mvn/
+src/main/resources/rebel.xml
+src/main/resources/static/
