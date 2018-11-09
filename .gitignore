@@ -26,3 +26,5 @@
 .mvn/
 src/main/resources/rebel.xml
 src/main/resources/static/
+/mvnw
+/mvnw.cmd
