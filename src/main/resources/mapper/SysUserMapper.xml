@@ -149,6 +149,6 @@
 		from
 		USER u,DEPARTMENT d
 		where u.DEPARTMENT_ID=d.DEPARTMENT_ID
-		ORDER BY USER_DISPLAY_ORDER
+		ORDER BY USER_ID
   </select>
 </mapper>

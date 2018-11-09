@@ -1,13 +1,12 @@
 package com.sy.service.Impl;
 
+import com.github.pagehelper.Page;
 import com.google.common.base.Preconditions;
 import com.sy.dao.SysUserMapper;
 import com.sy.model.SysUser;
 import com.sy.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @Auther: luhailiang
@@ -54,7 +53,7 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
-    public List<SysUser> getAllUser() {
+    public Page<SysUser> getAllUser() {
         return sysUserMapper.getAllUser();
     }
 }

@@ -1,5 +1,6 @@
 package com.sy.controller;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sy.model.SysUser;
@@ -10,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Auther: luhailiang
@@ -54,12 +52,12 @@ public class SysUserController {
     @ApiOperation(value = "查询所有用户", notes = "查询所有用户及用户所在部门")
     @RequestMapping(value = "/userList", method = RequestMethod.GET)
     @ResponseBody
-    public JsonData getAllUser(@RequestParam(required = false, defaultValue = "1") Integer startPage,
-                               @RequestParam(required = false, defaultValue = "5") Integer pageSize) {
-        PageHelper.startPage(startPage, pageSize);
-        List<SysUser> users = new ArrayList<>();
-        users = sysUserService.getAllUser();
-        PageInfo<SysUser> pageInfo = new PageInfo<>(users);
+    public JsonData getAllUser(
+            @RequestParam(required = false, name = "pageSize") Integer pageSize,
+            @RequestParam(required = false, name = "startIndex") Integer startIndex) {
+        PageHelper.startPage(startIndex, pageSize);
+        Page<SysUser> userPage = sysUserService.getAllUser();
+        PageInfo<SysUser> pageInfo = new PageInfo<>(userPage);
         return JsonData.success(pageInfo, "查询成功");
     }
 
