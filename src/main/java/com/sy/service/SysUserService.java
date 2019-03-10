@@ -3,6 +3,8 @@ package com.sy.service;
 import com.github.pagehelper.Page;
 import com.sy.model.SysUser;
 
+import java.util.List;
+
 
 /**
  * @Auther: luhailiang
@@ -20,4 +22,6 @@ public interface SysUserService {
     public SysUser selectUser(int userId);
 
     Page<SysUser> getAllUser();
+
+    List<SysUser> getAllUserForEasyUi();
 }

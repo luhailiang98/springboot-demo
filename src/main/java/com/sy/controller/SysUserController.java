@@ -12,6 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Auther: luhailiang
  * @Date: 2018/8/9 13:04
@@ -55,10 +59,20 @@ public class SysUserController {
     public JsonData getAllUser(
             @RequestParam(required = false, name = "pageSize") Integer pageSize,
             @RequestParam(required = false, name = "startIndex") Integer startIndex) {
-        PageHelper.startPage(startIndex, pageSize);
+        PageHelper.startPage(startIndex + 1, pageSize);
         Page<SysUser> userPage = sysUserService.getAllUser();
         PageInfo<SysUser> pageInfo = new PageInfo<>(userPage);
         return JsonData.success(pageInfo, "查询成功");
+    }
+
+    @RequestMapping(value = "/userListEasyUi", method = RequestMethod.GET)
+    @ResponseBody
+    public JsonData getAllUserForEasyui() {
+        List<SysUser> sysUser = sysUserService.getAllUserForEasyUi();
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("rows", sysUser);
+        resultMap.put("total", sysUser.size());
+        return JsonData.success(resultMap, "查询用户成功");
     }
 
     @ApiOperation(value = "返回hello页面", notes = "返回hello页面")
@@ -69,5 +83,8 @@ public class SysUserController {
         return "hello";
     }
 
-
+    @RequestMapping(value = "/easyUi", method = RequestMethod.GET)
+    public String easyUi() {
+        return "easyUiTable";
+    }
 }

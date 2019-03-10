@@ -8,6 +8,8 @@ import com.sy.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Auther: luhailiang
  * @Date: 2018/8/8 22:33
@@ -55,5 +57,10 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public Page<SysUser> getAllUser() {
         return sysUserMapper.getAllUser();
+    }
+
+    @Override
+    public List<SysUser> getAllUserForEasyUi() {
+        return sysUserMapper.getAllUserForEasyUi();
     }
 }

@@ -24,6 +24,8 @@
     <tfoot>
     </tfoot>
 </table>
+
+
 <script>
     $(function () {
 
@@ -69,7 +71,7 @@
                 var param = {};
                 param.pageSize = data.length;//页面显示记录条数，在页面显示每页显示多少项的时候
                 param.startIndex = data.start;//开始的记录序号
-                // param.pageIndex = (data.start / data.length);//当前页码
+                // param.startIndex = (data.start / data.length);//当前页码
 
                 //ajax请求数据方法
                 $.ajax({
@@ -97,6 +99,17 @@
             columns: [
                 {data: "userId", "title": "用户ID"},
                 {data: "userName", "title": "用户名"},
+                {data: null, "wdith": 80}
+            ],
+            columnDefs: [
+                {
+                    "targets": 2,
+                    "render": function (data, type, row, meta) {
+                        var button = '<button ' +
+                            'onclick="test(' + row.userId + ')">测试</button>';
+                        return button;
+                    }
+                }
             ]
         });
 
@@ -104,7 +117,12 @@
             table.ajax.reload();
         });
 
+
     });
+
+    function test(id) {
+        console.log(id)
+    }
 
 </script>
 </body>

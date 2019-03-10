@@ -4,6 +4,8 @@ import com.github.pagehelper.Page;
 import com.sy.model.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 
 @Mapper
 public interface SysUserMapper {
@@ -18,5 +20,7 @@ public interface SysUserMapper {
     SysUser selectByPrimaryKey(Integer userId);
 
     Page<SysUser> getAllUser();
+
+    List<SysUser> getAllUserForEasyUi();
 
 }
